@@ -1,0 +1,762 @@
+<script src="https://apis.google.com/js/platform.js"></script>
+<h1>KBARTV - Saison 2013-2014</h1>
+<p>Retrouvez toutes nos vid&eacute;os des championnats de France sur notre cha&icirc;ne Youtube :&nbsp;</p>
+<div class="g-ytsubscribe" data-channelid="UCjVcPJTtVEgsBb8NrNLDPmw" data-count="default" data-layout="full">&nbsp;</div>
+<p class="videotip-jck">
+	Pour acc&eacute;der directement aux playlist, cliquez <a
+		href="http://www.youtube.com/channel/UCjVcPJTtVEgsBb8NrNLDPmw/videos?sort=dd&amp;view=1&amp;flow=list&amp;live_view=500" target="_blank"
+		title="Accès aux playlist">ICI</a>.
+</p>
+
+<br />
+<br />
+<script src='http://code.jquery.com/jquery-latest.js' type='text/javascript'></script>
+
+<script type='text/javascript'>
+	//<![CDATA[
+	// Lazy loading of youtube videos by MS-potilas 2011
+	// Needs jQuery.
+	// See http://jsfiddle.net/mUqNj/ and http://yabtb.blogspot.com/2011/12/lazy-load-youtube-videos.html
+	//
+	// Usage:
+	// <a class="youtube-lazy-link" style="width:560px;height:315px;" href="http://www.youtube.com/watch?v=3u8sEaohHMk">Sibelius</a>
+	//  - style is optional, if omitted, default width 560 and height 315 pixels is used
+	//
+	$(document)
+			.ready(
+					function() {
+						$("a.youtube-lazy-link")
+								.each(
+										function(index) {
+											var embedparms = $(this).attr(
+													"href").split("/embed/")[1];
+											if (!embedparms)
+												embedparms = $(this).attr(
+														"href").split("?v=")[1]
+														.replace(/\&/, '?');
+											var youid = embedparms.split("?")[0]
+													.split("#")[0];
+											var start = embedparms
+													.match(/[#&]t=(\d+)s/);
+											if (start)
+												start = start[1];
+											else {
+												start = embedparms
+														.match(/[#&]t=(\d+)m(\d+)s/);
+												if (start)
+													start = parseInt(start[1])
+															* 60
+															+ parseInt(start[2]);
+												else {
+													start = embedparms
+															.match(/[?&]start=(\d+)/);
+													if (start)
+														start = start[1];
+												}
+											}
+											embedparms = embedparms.split("#")[0];
+											if (start
+													&& embedparms
+															.indexOf("start=") == -1)
+												embedparms += ((embedparms
+														.indexOf("?") == -1) ? "?"
+														: "&")
+														+ "start=" + start;
+											if (embedparms
+													.indexOf("showinfo=0") != -1)
+												$(this).html('');
+											$(this)
+													.prepend(
+															'<div style="height:'
+																	+ (parseInt($(
+																			this)
+																			.css(
+																					"height")) - 4)
+																	+ 'px;width:'
+																	+ (parseInt($(
+																			this)
+																			.css(
+																					"width")) - 4)
+																	+ 'px;" class="youtube-lazy-link-div"></div>&nbsp;')
+											$(this)
+													.css(
+															"background",
+															"#000 url(http://i2.ytimg.com/vi/"
+																	+ youid
+																	+ "/0.jpg) center center no-repeat");
+											$(this).attr("id", youid);
+											$(this)
+													.attr(
+															"href",
+															"http://www.youtube.com/watch?v="
+																	+ youid
+																	+ (start ? "#t="
+																			+ start
+																			+ "s"
+																			: ""));
+											var emu = 'http://www.youtube.com/embed/'
+													+ embedparms;
+											emu += ((emu.indexOf("?") == -1) ? "?"
+													: "&")
+													+ "autoplay=1";
+											var videoFrame = '<iframe width="'
+													+ parseInt($(this).css(
+															"width"))
+													+ '" height="'
+													+ parseInt($(this).css(
+															"height"))
+													+ '" style="vertical-align:top;" src="'
+													+ emu
+													+ '" frameborder="0" allowfullscreen></iframe>';
+											$(this)
+													.attr(
+															"onclick",
+															"$('#"
+																	+ youid
+																	+ "').replaceWith('"
+																	+ videoFrame
+																	+ "');return false;");
+										});
+					})
+	//]]>
+</script>
+<style type='text/css'>
+a:hover {
+	cursor: pointer;
+}
+
+a.youtube-lazy-link {
+	vertical-align: top;
+	background: #555;
+	width: 560px;
+	height: 315px;
+	background-size: cover;
+	text-decoration: none;
+	color: #DDD;
+	text-align: left;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+	display: inline-block;
+}
+
+a.youtube-lazy-link:hover {
+	text-decoration: none;
+	color: #FFF;
+}
+
+.youtube-lazy-link-div {
+	border: 2px solid #000;
+	background:
+		url(http://lh4.googleusercontent.com/-QCeB6REIFlE/TuGUlY3N46I/AAAAAAAAAaI/9-urEUtpKcI/s800/youtube-play-button.png)
+		center center no-repeat;
+	position: absolute;
+}
+
+.youtube-lazy-link-div:hover {
+	background:
+		url(http://lh5.googleusercontent.com/-oBFjswrosz4/TuHqainRc3I/AAAAAAAAAbE/t3rMQuSJdLA/s800/youtube-play-button-hover.png)
+		center center no-repeat;
+}
+</style>
+
+<script type="text/javascript">
+	function toggleVisibility(id) {
+
+		if ($('#title' + id).attr('title').indexOf('reduce') != -1) {
+			$('#' + id).show(1000);
+			$('#title' + id).attr('title', 'expand');
+		} else {
+			$('#' + id).hide(1000);
+			$('#title' + id).attr('title', 'reduce');
+		}
+	}
+</script>
+
+
+<div id="KBARTV">
+	<!-- DEBUT Rennes1F -->
+	<div>
+		<a id="titleRennes1F" onclick="toggleVisibility('Rennes1F')" title="reduce"> Rennes 1 femme </a>
+		<div id="Rennes1F" class="listeMatchsEquipe" style="display: none;">
+			<!-- DEBUT Match D1F10-a -->
+			<a id="titleMatchD1F10-a" onclick="toggleVisibility('MatchD1F10-a')" title="reduce">13 avril 2014 : Rennes 1 - Nantes 2 - Rennes 2 </a>
+			<div id="MatchD1F10-a" style="display: none;">
+				<center>
+					<a class="youtube-lazy-link" style="width: 560px; height: 410px;"
+						href="https://www.youtube.com/watch?v=xm9Z29YzWXo&index=2&list=PLd4ZYCcMmGFmTV9vATFKWL2CJqlfBo3kH"></a>
+				</center>
+			</div>
+			<!-- FIN Match D1F10-a -->
+			<br />
+
+			<!-- DEBUT Match D1F7 -->
+			<a id="titleMatchD1F7" onclick="toggleVisibility('MatchD1F7')" title="reduce">23 mars 2014 : Couhé - Rennes 1 - Nantes 1 </a>
+			<div id="MatchD1F7" style="display: none;">
+				<center>
+					<a class="youtube-lazy-link" style="width: 560px; height: 410px;"
+						href="https://www.youtube.com/watch?v=gCF_EEGdqhY&list=PLd4ZYCcMmGFlrR5vo-AkDIoNCirsYbtAp"></a>
+				</center>
+			</div>
+			<!-- FIN Match D1F7 -->
+			<br />
+
+			<!-- DEBUT Match D1F6 -->
+			<a id="titleMatchD1F6" onclick="toggleVisibility('MatchD1F6')" title="reduce">16 Février 2014 : Angers 1 - Rennes 1 - Nantes 1 </a>
+			<div id="MatchD1F6" style="display: none;">
+				<center>
+					<a class="youtube-lazy-link" style="width: 560px; height: 410px;"
+						href="http://www.youtube.com/watch?v=1mn2jBBBtfI&list=PLd4ZYCcMmGFkpHnMp8OIq2l7dubOP2weM&index=1"></a>
+				</center>
+			</div>
+			<!-- FIN Match D1F6 -->
+			<br />
+
+			<!-- DEBUT Match D1F4 -->
+			<a id="titleMatchD1F4" onclick="toggleVisibility('MatchD1F4')" title="reduce">2 février 2014 : Rennes 1 - Angers 1 - Nantes 3 </a>
+			<div id="MatchD1F4" style="display: none;">
+				<center>
+					<a class="youtube-lazy-link" style="width: 560px; height: 410px;"
+						href="https://www.youtube.com/watch?v=IsnXVvPkXqU&list=PLd4ZYCcMmGFksZGW4IEh-IFsru0BKyVn1"></a>
+				</center>
+			</div>
+			<!-- FIN Match D1F4 -->
+			<br />
+
+			<!-- DEBUT Match G5 -->
+			<a id="titleMatchG5" onclick="toggleVisibility('MatchG5')" title="reduce"> 15 Décembre 2013 : Rennes 1 - Ponts-de-Cé - Nantes 3 </a>
+			<div id="MatchG5" style="display: none;">
+				<center>
+					<a class="youtube-lazy-link" style="width: 560px; height: 410px;"
+						href="http://www.youtube.com/embed/pQCLcamciGQ?list=PLd4ZYCcMmGFlEjiGH3FxS0c--YGiIxO0"></a>
+				</center>
+			</div>
+			<!-- FIN Match G5 -->
+			<br />
+			<!-- DEBUT Match G4 -->
+			<a id="titleMatchG4" onclick="toggleVisibility('MatchG4')" title="reduce"> 01 Décembre 2013 : Rennes 1 - Angers 2 - Nantes 2 </a>
+			<div id="MatchG4" style="display: none;">
+				<center>
+					<a class="youtube-lazy-link" style="width: 560px; height: 410px;"
+						href="http://www.youtube.com/embed/qA9YBRKcSig?list=PLd4ZYCcMmGFlgSCwYFoNPuH9n4i1Sto4a"></a>
+				</center>
+			</div>
+			<!-- FIN Match G4 -->
+			<br />
+			<!-- DEBUT Match G3 -->
+			<a id="titleMatchG3" onclick="toggleVisibility('MatchG3')" title="reduce"> 24 Novembre 2013 : Rennes 1 - Angers 1 - PDC </a>
+			<div id="MatchG3" style="display: none;">
+				<center>
+					<a class="youtube-lazy-link" style="width: 560px; height: 410px;"
+						href="http://www.youtube.com/embed/QcO_zuI978Y?list=PLd4ZYCcMmGFmM1aKZPqvRSAqf_rw-0aL2"></a>
+				</center>
+			</div>
+			<!-- FIN Match G3 -->
+		</div>
+
+		<!-- FIN Rennes1F -->
+		<br /> <br />
+	</div>
+
+	<!-- DEBUT Rennes2F -->
+	<div>
+		<a id="titleRennes2F" onclick="toggleVisibility('Rennes2F')" title="reduce"> Rennes 2 femme </a>
+		<div id="Rennes2F" class="listeMatchsEquipe" style="display: none;">
+			<!-- DEBUT Match D1F10-b -->
+			<a id="titleMatchD1F10-b" onclick="toggleVisibility('MatchD1F10-b')" title="reduce">13 avril 2014 : Rennes 1 - Nantes 2 - Rennes 2 </a>
+			<div id="MatchD1F10-b" style="display: none;">
+				<center>
+					<a class="youtube-lazy-link" style="width: 560px; height: 410px;"
+						href="https://www.youtube.com/watch?v=xm9Z29YzWXo&index=2&list=PLd4ZYCcMmGFmTV9vATFKWL2CJqlfBo3kH"></a>
+				</center>
+			</div>
+			<!-- FIN Match D1F10-b -->
+			<br />
+
+			<!-- DEBUT Match D1F9 -->
+			<a id="titleMatchD1F9" onclick="toggleVisibility('MatchD1F9')" title="reduce">06 avril 2014 : Couhé - Angers 1 - Rennes 2 </a>
+			<div id="MatchD1F9" style="display: none;">
+				<center>
+					<a class="youtube-lazy-link" style="width: 560px; height: 410px;"
+						href="https://www.youtube.com/watch?v=59SLsMh-hdk&list=PLd4ZYCcMmGFlDlYIR0x1DTC0WkIFxWuPs&index=2"></a>
+				</center>
+			</div>
+			<!-- FIN Match D1F9 -->
+			<br />
+
+			<!-- DEBUT Match D1F8 -->
+			<a id="titleMatchD1F8" onclick="toggleVisibility('MatchD1F8')" title="reduce">30 mars 2014 : Nantes 1 - Rennes 2 - Nantes 3 </a>
+			<div id="MatchD1F8" style="display: none;">
+				<center>
+					<a class="youtube-lazy-link" style="width: 560px; height: 410px;"
+						href="https://www.youtube.com/watch?v=DpYCjV1Awqo&list=PLd4ZYCcMmGFmqFbp97rvW6QC_0agKB9FR&index=2"></a>
+				</center>
+			</div>
+			<!-- FIN Match D1F8 -->
+			<br />
+
+			<!-- DEBUT Match D1F2 -->
+			<a id="titleMatchD1F2" onclick="toggleVisibility('MatchD1F2')" title="reduce">19 janvier 2014 : Rennes 2 - Nantes 2 - Nantes 3 </a>
+			<div id="MatchD1F2" style="display: none;">
+				<center>
+					<a class="youtube-lazy-link" style="width: 560px; height: 410px;"
+						href="https://www.youtube.com/watch?v=Z8va2L-NXr0&list=PLd4ZYCcMmGFkLDzEhFVhFsPkUCjLNEBAB"></a>
+				</center>
+			</div>
+			<!-- FIN Match D1F2 -->
+			<br />
+
+			<!-- DEBUT Match D1F1 -->
+			<a id="titleMatchD1F1" onclick="toggleVisibility('MatchD1F1')" title="reduce"> 12 Janvier 2014 : Rennes 2 - Angers 1 - Nantes 3 </a>
+			<div id="MatchD1F1" style="display: none;">
+				<center>
+					<a class="youtube-lazy-link" style="width: 560px; height: 410px;"
+						href="http://www.youtube.com/embed/N3Mw-g7uelQ?list=PLd4ZYCcMmGFm2id-YK7NVp-T2qgACpiX2"></a>
+				</center>
+			</div>
+			<!-- FIN Match D1F1 -->
+			<br />
+			<!-- DEBUT Match F7 -->
+			<a id="titleMatchF7" onclick="toggleVisibility('MatchF7')" title="reduce"> 15 Décembre 2013 : Couhé - Rennes 2 - Berric </a>
+			<div id="MatchF7" style="display: none;">
+				<center>
+					<a class="youtube-lazy-link" style="width: 560px; height: 410px;"
+						href="http://www.youtube.com/embed/jB3ifQV_ucY?list=PLd4ZYCcMmGFnJqaa6mdrWr0kO8ngyMIo8"></a>
+				</center>
+			</div>
+			<!-- FIN Match F7 -->
+			<!-- DEBUT Match F6 -->
+			<br /> <a id="titleMatchF6" onclick="toggleVisibility('MatchF6')" title="reduce"> 08 Décembre 2013 : Nantes 1 - Rennes 2 - Campbon </a>
+			<div id="MatchF6" style="display: none;">
+				<center>
+					<a class="youtube-lazy-link" style="width: 560px; height: 410px;"
+						href="http://www.youtube.com/embed/_Ugl6RPjRGg?list=PLd4ZYCcMmGFmzc02y82RRclJ3o5xCK6o3"></a>
+				</center>
+			</div>
+			<!-- FIN Match F6 -->
+			<!-- DEBUT Match F4 -->
+			<br /> <a id="titleMatchF4" onclick="toggleVisibility('MatchF4')" title="reduce"> 01 Décembre : Angers 3 - Rennes 2 - Saint Brieuc </a>
+			<div id="MatchF4" style="display: none;">
+				<center>
+					<a class="youtube-lazy-link" style="width: 560px; height: 410px;"
+						href="http://www.youtube.com/embed/h6u5ODFDdwo?list=PLd4ZYCcMmGFm5e6Zb1p4BXpx19aF0FdZV"></a>
+				</center>
+			</div>
+			<!-- FIN Match F4 -->
+		</div>
+		<!-- FIN Rennes2F -->
+		<br /> <br />
+	</div>
+
+	<!-- DEBUT Rennes 1 -->
+	<div>
+		<a id="titleRennes1" onclick="toggleVisibility('Rennes1')" title="reduce"> Rennes 1 homme </a>
+		<div id="Rennes1" class="listeMatchsEquipe" style="display: none;">
+			<!-- DEBUT Match D1M16 -->
+			<a id="titleMatchD1M16" onclick="toggleVisibility('MatchD1M16')" title="reduce">06 avril 2014 : Angers 2 - Ponts-de-Cé 1 - Rennes 1 </a>
+			<div id="MatchD1M16" style="display: none;">
+				<center>
+					<a class="youtube-lazy-link" style="width: 560px; height: 410px;"
+						href="https://www.youtube.com/watch?v=ouzom31Wsio&index=2&list=PLd4ZYCcMmGFkm9hAKoVAdMq476q65TGyb"></a>
+				</center>
+			</div>
+			<!-- FIN Match D1M16 -->
+			<br />
+
+			<!-- DEBUT Match D1M15 -->
+			<a id="titleMatchD1M15" onclick="toggleVisibility('MatchD1M15')" title="reduce">30 mars 2014 : Nantes 2 - Angers 1 - Rennes 1 </a>
+			<div id="MatchD1M15" style="display: none;">
+				<center>
+					<a class="youtube-lazy-link" style="width: 560px; height: 410px;"
+						href="https://www.youtube.com/watch?v=XCuCAGHh0cg&list=PLd4ZYCcMmGFlaoTeLNg6CKl0mlpVdkn6x"></a>
+				</center>
+			</div>
+			<!-- FIN Match D1M15 -->
+			<br />
+
+			<!-- DEBUT Match D1M13 -->
+			<a id="titleMatchD1M13" onclick="toggleVisibility('MatchD1M13')" title="reduce">23 février 2014 : Angers 2 - Nantes 2 - Rennes 1 </a>
+			<div id="MatchD1M13" style="display: none;">
+				<center>
+					<a class="youtube-lazy-link" style="width: 560px; height: 410px;"
+						href="http://www.youtube.com/watch?v=cQ1_qsBS2Uc&list=PLd4ZYCcMmGFk6IZTn10im1tmqmvRT89Oy"></a>
+				</center>
+			</div>
+			<!-- FIN Match D1M13 -->
+			<br />
+
+			<!-- DEBUT Match D1M10 -->
+			<a id="titleMatchD1M10" onclick="toggleVisibility('MatchD1M10')" title="reduce">2 février 2014 : Nantes 2 - Rennes 1 - Rennes 2 </a>
+			<div id="MatchD1M10" style="display: none;">
+				<center>
+					<a class="youtube-lazy-link" style="width: 560px; height: 410px;"
+						href="https://www.youtube.com/watch?v=6xXnUOKg5kE&list=PLd4ZYCcMmGFn0L82pZTIg5jYkO2goqf7M"></a>
+				</center>
+			</div>
+			<!-- FIN Match D1M10 -->
+			<br />
+
+			<!-- DEBUT Match D1M7 -->
+			<a id="titleMatchD1M7" onclick="toggleVisibility('MatchD1M7')" title="reduce"> 12 Janvier 2014 : Angers 1 - Nantes 1 - Rennes 1 </a>
+			<div id="MatchD1M7" style="display: none;">
+				<center>
+					<a class="youtube-lazy-link" style="width: 560px; height: 410px;"
+						href="http://www.youtube.com/embed/H-c2inPfGbc?list=PLd4ZYCcMmGFnwFH5o-_J2gRWwFi_YKtGI"></a>
+				</center>
+			</div>
+			<!-- FIN Match D1M7 -->
+			<!-- DEBUT Match D1M4A -->
+			<br /> <a id="titleMatchD1M4A" onclick="toggleVisibility('MatchD1M4A')" title="reduce"> 01 Décembre 2013 : Angers 1 - Rennes 1 - Rennes 2 </a>
+			<div id="MatchD1M4A" style="display: none;">
+				<center>
+					<a class="youtube-lazy-link" style="width: 560px; height: 410px;"
+						href="http://www.youtube.com/embed/2Ip8HDkeEtY?list=PLd4ZYCcMmGFlADgI0XhBrEy7-xQUjYPrT"></a>
+				</center>
+			</div>
+			<!-- FIN Match D1M4A -->
+			<!-- DEBUT Match D1M4-B -->
+			<br /> <a id="titleMatchD1M4-B" onclick="toggleVisibility('MatchD1M4-B')" title="reduce">24 Novembre 2013 : PDC 1 - Nantes 1 - Rennes 1 </a>
+			<div id="MatchD1M4-B" style="display: none;">
+				<center>
+					<a class="youtube-lazy-link" style="width: 560px; height: 410px;"
+						href="http://www.youtube.com/embed/b5ZkEUqfxWw?list=PLd4ZYCcMmGFkOIoJQWaVwG-MRc7eVBqY4"></a>
+				</center>
+			</div>
+			<!-- FIN Match D1M4-B -->
+		</div>
+		<!-- FIN Rennes 1 -->
+		<br /> <br />
+	</div>
+
+	<!-- DEBUT Rennes 2 -->
+	<div>
+		<a id="titleRennes2" onclick="toggleVisibility('Rennes2')" title="reduce"> Rennes 2 homme</a>
+		<div id="Rennes2" class="listeMatchsEquipe" style="display: none;">
+			<!-- DEBUT Match D1M17 -->
+			<a id="titleMatchD1M17" onclick="toggleVisibility('MatchD1M17')" title="reduce">13 avril 2014 : Nantes 2 - Nantes 1 - Rennes 2 </a>
+			<div id="MatchD1M17" style="display: none;">
+				<center>
+					<a class="youtube-lazy-link" style="width: 560px; height: 410px;"
+						href="https://www.youtube.com/watch?v=gqtB1DZS708&index=2&list=PLd4ZYCcMmGFkbl6AKWmuLZQOqxBzjQRl7"></a>
+				</center>
+			</div>
+			<!-- FIN Match D1M17 -->
+			<br />
+
+			<!-- DEBUT Match D1M14 -->
+			<a id="titleMatchD1M14" onclick="toggleVisibility('MatchD1M14')" title="reduce">23 mars 2014 : Angers 2 - Nantes 1 - Rennes 2 </a>
+			<div id="MatchD1M14" style="display: none;">
+				<center>
+					<a class="youtube-lazy-link" style="width: 560px; height: 410px;"
+						href="https://www.youtube.com/watch?v=6cXYuppR4pg&list=PLd4ZYCcMmGFlhi2VhrukZQ_GW2f0huIlm"></a>
+				</center>
+			</div>
+			<!-- FIN Match D1M14 -->
+			<br />
+
+			<!-- DEBUT Match D1M12 -->
+			<a id="titleMatchD1M12" onclick="toggleVisibility('MatchD1M12')" title="reduce">16 février 2014 : Angers 1 - Nantes 1 - Rennes 2 </a>
+			<div id="MatchD1M12" style="display: none;">
+				<center>
+					<a class="youtube-lazy-link" style="width: 560px; height: 410px;"
+						href="http://www.youtube.com/watch?v=MJSgXwEsPo0&list=PLd4ZYCcMmGFnzX2likWHpNkaI9GqA9Kfb&index=1"></a>
+				</center>
+			</div>
+			<!-- FIN Match D1M12 -->
+			<br />
+
+			<!-- DEBUT Match D1M10 -->
+			<a id="titleMatchD1M10" onclick="toggleVisibility('MatchD1M10')" title="reduce">2 février 2014 : Nantes 2 - Rennes 1 - Rennes 2 </a>
+			<div id="MatchD1M10" style="display: none;">
+				<center>
+					<a class="youtube-lazy-link" style="width: 560px; height: 410px;"
+						href="https://www.youtube.com/watch?v=6xXnUOKg5kE&list=PLd4ZYCcMmGFn0L82pZTIg5jYkO2goqf7M"></a>
+				</center>
+			</div>
+			<!-- FIN Match D1M10 -->
+			<br />
+
+			<!-- DEBUT Match D1M9 -->
+			<a id="titleMatchD1M9" onclick="toggleVisibility('MatchD1M9')" title="reduce">26 janvier 2014 : Angers 2 - Ponts-de-Cé 1 - Rennes 2 </a>
+			<div id="MatchD1M9" style="display: none;">
+				<center>
+					<a class="youtube-lazy-link" style="width: 560px; height: 410px;"
+						href="https://www.youtube.com/watch?v=Hd98yXzoEVE&list=PLd4ZYCcMmGFmxdd3tnV08K3gDXFGhLqGB"></a>
+				</center>
+			</div>
+			<!-- FIN Match D1M9 -->
+			<br />
+
+			<!-- DEBUT Match D1M6 -->
+			<a id="titleMatchD1M6" onclick="toggleVisibility('MatchD1M6')" title="reduce"> 15 Décembre 2013 : Ponts-de-Cé 1 - Rennes 2 - Nantes 2 </a>
+			<div id="MatchD1M6" style="display: none;">
+				<center>
+					<a class="youtube-lazy-link" style="width: 560px; height: 410px;"
+						href="http://www.youtube.com/embed/RRwxaNVKw60?list=PLd4ZYCcMmGFnsoaFOmAw7L2_0B8TjsEE6"></a>
+				</center>
+			</div>
+			<!-- FIN Match D1M6 -->
+			<!-- DEBUT Match D1M4B -->
+			<br /> <a id="titleMatchD1M4B" onclick="toggleVisibility('MatchD1M4B')" title="reduce"> 01 Décembre 2013 : Angers 1 - Rennes 1 - Rennes 2 </a>
+			<div id="MatchD1M4B" style="display: none;">
+				<center>
+					<a class="youtube-lazy-link" style="width: 560px; height: 410px;"
+						href="http://www.youtube.com/embed/2Ip8HDkeEtY?list=PLd4ZYCcMmGFlADgI0XhBrEy7-xQUjYPrT"></a>
+				</center>
+			</div>
+			<!-- FIN Match D1M4B -->
+			<!-- DEBUT Match D1M1 -->
+			<br /> <a id="titleMatchD1M1" onclick="toggleVisibility('MatchD1M1')" title="reduce"> 20 Octobre 2013 : Rennes 2 - Angers 1 - Angers 2 </a>
+			<div id="MatchD1M1" style="display: none;">
+				<center>
+					<a class="youtube-lazy-link" style="width: 560px; height: 410px;"
+						href="http://www.youtube.com/embed/Z4C_0jXofLw?list=PLd4ZYCcMmGFkSPX5Y4QWif0on8FOfxoqb"></a>
+				</center>
+			</div>
+			<!-- FIN Match D1M1 -->
+		</div>
+		<!-- FIN Rennes 2 -->
+		<br /> <br />
+	</div>
+
+	<!-- DEBUT Rennes3 -->
+	<div>
+		<a id="titleRennes3" onclick="toggleVisibility('Rennes3')" title="reduce"> Rennes 3 homme</a>
+		<div id="Rennes3" class="listeMatchsEquipe" style="display: none;">
+			<!-- DEBUT Match D2M12 -->
+			<a id="titleMatchD2M12" onclick="toggleVisibility('MatchD2M12')" title="reduce">13 avril 2014 : Nantes 3 - Campbon 1 - Rennes 3 </a>
+			<div id="MatchD2M12" style="display: none;">
+				<center>
+					<a class="youtube-lazy-link" style="width: 560px; height: 410px;"
+						href="https://www.youtube.com/watch?v=F2_yg-T4bSc&list=PLd4ZYCcMmGFlWrQRwvW1YFfxOihMqicON&index=2"></a>
+				</center>
+			</div>
+			<!-- FIN Match D2M12 -->
+			<br />
+
+			<!-- DEBUT Match D2M11-a -->
+			<a id="titleMatchD2M11-a" onclick="toggleVisibility('MatchD2M11-a')" title="reduce">13 avril 2014 : Berric - Rennes 4 - Rennes 3 </a>
+			<div id="MatchD2M11-a" style="display: none;">
+				<center>
+					<a class="youtube-lazy-link" style="width: 560px; height: 410px;"
+						href="https://www.youtube.com/watch?v=yiyKoDDEzT4&index=2&list=PLd4ZYCcMmGFmoovzCep2nQqMC0DSHssS0"></a>
+				</center>
+			</div>
+			<!-- FIN Match D2M11-a -->
+			<br />
+
+			<!-- DEBUT Match D2M9 -->
+			<a id="titleMatchD2M9" onclick="toggleVisibility('MatchD2M9')" title="reduce">30 mars 2014 : Rennes 3 - Berric - Nantes 3 </a>
+			<div id="MatchD2M9" style="display: none;">
+				<center>
+					<a class="youtube-lazy-link" style="width: 560px; height: 410px;"
+						href="https://www.youtube.com/watch?v=0tUGp31YIwI&list=PLd4ZYCcMmGFnWqCDdDA75xHFXWoHarXqU&index=2"></a>
+				</center>
+			</div>
+			<!-- FIN Match D2M9 -->
+			<br />
+
+			<!-- DEBUT Match D2M6 -->
+			<a id="titleMatchD2M6" onclick="toggleVisibility('MatchD2M6')" title="reduce">16 Février 2014 : Rennes 4 - Saint-Brieuc - Rennes 3 </a>
+			<div id="MatchD2M6" style="display: none;">
+				<center>
+					<a class="youtube-lazy-link" style="width: 560px; height: 410px;"
+						href="http://www.youtube.com/watch?v=ZgGU1dB5fmk&list=PLd4ZYCcMmGFkfhwciwtX_Om-N9V5XSu5G&index=1"></a>
+				</center>
+			</div>
+			<!-- FIN Match D2M6 -->
+			<br />
+
+			<!-- DEBUT Match D2M3 -->
+			<a id="titleMatchD2M3" onclick="toggleVisibility('MatchD2M3')" title="reduce">26 janvier 2014 : Rennes 3 - Couhé - Campbon 1 </a>
+			<div id="MatchD2M3" style="display: none;">
+				<center>
+					<a class="youtube-lazy-link" style="width: 560px; height: 410px;"
+						href="https://www.youtube.com/watch?v=nMM0i3Bgca8&list=PLd4ZYCcMmGFkH4VBAcvkz8JLGcU9vEJLY"></a>
+				</center>
+			</div>
+			<!-- FIN Match D2M3 -->
+			<br />
+			<!-- DEBUT Match B6 -->
+			<a id="titleMatchB6" onclick="toggleVisibility('MatchB6')" title="reduce"> 08 Décembre 2013 : Rennes 3 - Berric - Angers 3 </a>
+			<div id="MatchB6" style="display: none;">
+				<center>
+					<a class="youtube-lazy-link" style="width: 560px; height: 410px;"
+						href="http://www.youtube.com/embed/ctt_OqmpqrM?list=PLd4ZYCcMmGFnlFpQ_IQnYpWCeQ0h926en"></a>
+				</center>
+			</div>
+			<!-- FIN Match B6 -->
+			<!-- DEBUT Match B4 -->
+			<br /> <a id="titleMatchB4" onclick="toggleVisibility('MatchB4')" title="reduce"> 24 Novembre 2013 : Rennes 3 - Vannes - Nantes 3 </a>
+			<div id="MatchB4" style="display: none;">
+				<center>
+					<a class="youtube-lazy-link" style="width: 560px; height: 410px;"
+						href="http://www.youtube.com/embed/fXJ_Ala2Jss?list=PLd4ZYCcMmGFl6fQAURDCEp5yHZ-S935tC"></a>
+				</center>
+			</div>
+			<!-- FIN Match B4 -->
+			<!-- DEBUT Match B2 -->
+			<br /> <a id="titleMatchB2" onclick="toggleVisibility('MatchB2')" title="reduce"> 17 novembre 2013 : Rennes 3 - Nantes 4 - Couhé </a>
+			<div id="MatchB2" style="display: none;">
+				<center>
+					<a class="youtube-lazy-link" style="width: 560px; height: 410px;"
+						href="http://www.youtube.com/embed/LH1jl6BzaBo?list=PLd4ZYCcMmGFl2VnsxaS7F74RBoNAOAdwA"></a>
+				</center>
+			</div>
+			<!-- FIN Match B2 -->
+		</div>
+
+		<!-- FIN Rennes3 -->
+		<br /> <br />
+	</div>
+
+	<!-- DEBUT Rennes4 -->
+	<div>
+		<a id="titleRennes4" onclick="toggleVisibility('Rennes4')" title="reduce"> Rennes 4 homme </a>
+		<div id="Rennes4" class="listeMatchsEquipe" style="display: none;">
+			<!-- DEBUT Match D2M11-b -->
+			<a id="titleMatchD2M11-b" onclick="toggleVisibility('MatchD2M11-b')" title="reduce">13 avril 2014 : Berric - Rennes 4 - Rennes 3 </a>
+			<div id="MatchD2M11-b" style="display: none;">
+				<center>
+					<a class="youtube-lazy-link" style="width: 560px; height: 410px;"
+						href="https://www.youtube.com/watch?v=yiyKoDDEzT4&index=2&list=PLd4ZYCcMmGFmoovzCep2nQqMC0DSHssS0"></a>
+				</center>
+			</div>
+			<!-- FIN Match D2M11-b -->
+			<br />
+
+			<!-- DEBUT Match D2M7 -->
+			<a id="titleMatchD2M7" onclick="toggleVisibility('MatchD2M7')" title="reduce">23 mars 2014 : Couhé - Campbon - Rennes 4 </a>
+			<div id="MatchD2M7" style="display: none;">
+				<center>
+					<a class="youtube-lazy-link" style="width: 560px; height: 410px;"
+						href="https://www.youtube.com/watch?v=-wXVS3foSZc&list=PLd4ZYCcMmGFlDuzhzaizN9or5y0mqNfBy"></a>
+				</center>
+			</div>
+			<!-- FIN Match D2M7 -->
+			<br />
+
+			<!-- DEBUT Match D2M6_B -->
+			<a id="titleMatchD2M6_B" onclick="toggleVisibility('MatchD2M6_B')" title="reduce">16 Février 2014 : Rennes 4 - Saint-Brieuc - Rennes 3 </a>
+			<div id="MatchD2M6_B" style="display: none;">
+				<center>
+					<a class="youtube-lazy-link" style="width: 560px; height: 410px;"
+						href="http://www.youtube.com/watch?v=ZgGU1dB5fmk&list=PLd4ZYCcMmGFkfhwciwtX_Om-N9V5XSu5G&index=1"></a>
+				</center>
+			</div>
+			<!-- FIN Match D2M6_B -->
+			<br />
+
+			<!-- DEBUT Match D2M4 -->
+			<a id="titleMatchD2M4" onclick="toggleVisibility('MatchD2M4')" title="reduce">2 février 2014 : Rennes 4 - Campbon 1 - Berric </a>
+			<div id="MatchD2M4" style="display: none;">
+				<center>
+					<a class="youtube-lazy-link" style="width: 560px; height: 410px;"
+						href="https://www.youtube.com/watch?v=8ZzPHiVrhzE&list=PLd4ZYCcMmGFlTkPEqk9ZxISumAAccIDuv"></a>
+				</center>
+			</div>
+			<!-- FIN Match D2M4 -->
+			<br />
+
+			<!-- DEBUT Match D2M1 -->
+			<a id="titleMatchD2M1" onclick="toggleVisibility('MatchD2M1')" title="reduce"> 12 Janvier 2014 : Nantes 3 - St-Brieuc - Rennes 4 </a>
+			<div id="MatchD2M1" style="display: none;">
+				<center>
+					<a class="youtube-lazy-link" style="width: 560px; height: 410px;"
+						href="http://www.youtube.com/embed/UgZpiwKrtao?list=PLd4ZYCcMmGFln6gfOfwQGuFmj0rqALvdX-n"></a>
+				</center>
+			</div>
+			<!-- FIN Match D2M1 -->
+			<!-- DEBUT Match A6 -->
+			<br /> <a id="titleMatchA6" onclick="toggleVisibility('MatchA6')" title="reduce"> 08 Décembre 2013 : Rennes 4 - Le Mans - Campbon 2 </a>
+			<div id="MatchA6" style="display: none;">
+				<center>
+					<a class="youtube-lazy-link" style="width: 560px; height: 410px;"
+						href="http://www.youtube.com/embed/bpu1GiPbpb0?list=PLd4ZYCcMmGFkARdXW2JO1gi9jW81roJ-n"></a>
+				</center>
+			</div>
+			<!-- FIN Match A6 -->
+			<!-- DEBUT Match A5 -->
+			<br /> <a id="titleMatchA5" onclick="toggleVisibility('MatchA5')" title="reduce"> 01 Décembre 2013 : Rennes 4 - Nantes 5 - Saint Brieuc</a>
+			<div id="MatchA5" style="display: none;">
+				<center>
+					<a class="youtube-lazy-link" style="width: 560px; height: 410px;"
+						href="http://www.youtube.com/embed/zMo6tOtXIO8?list=PLd4ZYCcMmGFlaSVupM8E304jLK5eKiO_M"></a>
+				</center>
+			</div>
+			<!-- FIN Match A5 -->
+			<!-- DEBUT Match A3 -->
+			<br /> <a id="titleMatchA3" onclick="toggleVisibility('MatchA3')" title="reduce"> 24 Novembre 2013 : PDC 2 - Campbon 1 - Rennes 4 </a>
+			<div id="MatchA3" style="display: none;">
+				<center>
+					<a class="youtube-lazy-link" style="width: 560px; height: 410px;"
+						href="http://www.youtube.com/embed/1x8zeHLQwHQ?list=PLd4ZYCcMmGFmxdAK8AVc3xRcRv4_P9Mlq"></a>
+				</center>
+			</div>
+			<!-- FIN Match A3 -->
+		</div>
+		<!-- FIN Rennes4 -->
+		<br /> <br />
+	</div>
+
+	<!-- DEBUT Autres Matchs -->
+	<div>
+		<a id="titleAutre" onclick="toggleVisibility('Autre')" title="reduce"> Autres Matchs </a>
+		<div id="Autre" class="listeMatchsEquipe" style="display: none;">
+
+			Hommes :<br />
+			<!-- DEBUT Match D1M8 -->
+			<a id="titleMatchD1M8" onclick="toggleVisibility('MatchD1M8')" title="reduce">19 janvier 2014 : Ponts-de-Cé 1 - Nantes 2 - Angers 1 </a>
+			<div id="MatchD1M8" style="display: none;">
+				<center>
+					<a class="youtube-lazy-link" style="width: 560px; height: 410px;"
+						href="http://www.youtube.com/watch?v=APFXLJUUh7Y&list=PLd4ZYCcMmGFkH9_XSI-UR_jhgY_5wYy80"></a>
+				</center>
+			</div>
+			<!-- FIN Match D1M8 -->
+			<br />
+
+			<!-- DEBUT Match D1M2 -->
+			<a id="titleMatchD1M2" onclick="toggleVisibility('MatchD1M2')" title="reduce"> 17 novembre 2013 : Ponts-De-Cé 1 - Nantes 2 - Nantes 1 </a>
+			<div id="MatchD1M2" style="display: none;">
+				<center>
+					<a class="youtube-lazy-link" style="width: 560px; height: 410px;"
+						href="http://www.youtube.com/embed/bxjAY8KAIhE?list=PLd4ZYCcMmGFlh6t6vUQp2mhOlqU8ZdBLX"></a>
+				</center>
+			</div>
+			<!-- FIN Match D1M2 -->
+			<!-- DEBUT Match D1M5 -->
+			<br /> <a id="titleMatchD1M5" onclick="toggleVisibility('MatchD1M5')" title="reduce"> 08 Décembre 2013 : Angers 2 - Nantes 2 - Nantes 1 </a>
+			<div id="MatchD1M5" style="display: none;">
+				<center>
+					<a class="youtube-lazy-link" style="width: 560px; height: 410px;"
+						href="http://www.youtube.com/embed/i3lFzMk6FOA?list=PLd4ZYCcMmGFmEpm3_vK-HEttq9EyI4LBW"></a>
+				</center>
+			</div>
+			<!-- FIN Match D1M5 -->
+			<br /> <br />Femmes :<br />
+			<!-- DEBUT Match D2F7 -->
+			<a id="titleMatchD2F7" onclick="toggleVisibility('MatchD2F7')" title="reduce">16 février 2014 : Berric - Campbon - Paris </a>
+			<div id="MatchD2F7" style="display: none;">
+				<center>
+					<a class="youtube-lazy-link" style="width: 560px; height: 410px;"
+						href="http://www.youtube.com/watch?v=icgiobgfEt0&list=PLd4ZYCcMmGFknaJXM8Fl1IWwjsX06xcIJ&index=1"></a>
+				</center>
+			</div>
+			<!-- FIN Match D2F7 -->
+			<br />
+
+			<!-- DEBUT Match D2F6 -->
+			<a id="titleMatchD2F6" onclick="toggleVisibility('MatchD2F6')" title="reduce">16 Février 2014 : Saint Brieuc - Paris - Angers 3 </a>
+			<div id="MatchD2F6" style="display: none;">
+				<center>
+					<a class="youtube-lazy-link" style="width: 560px; height: 410px;"
+						href="http://www.youtube.com/watch?v=8QneYz7Uniw&list=PLd4ZYCcMmGFkRx3cXAb2fhljSTLgqHWUS&index=1"></a>
+				</center>
+			</div>
+			<!-- FIN Match D2F6 -->
+			<br />
+
+		</div>
+		<!-- FIN Autre Match -->
+		<br /> <br />
+	</div>
+</div>
